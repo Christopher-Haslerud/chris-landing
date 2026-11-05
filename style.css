@@ -888,20 +888,34 @@ main {
 
   .site-nav {
     position: fixed;
-    inset: 0 0 0 auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: auto;
     z-index: 21;
     width: min(78vw, 360px);
+    height: 100vh;
+    min-height: 100vh;
     padding: 105px 35px 40px;
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
     gap: 15px;
-    background: var(--light-navy);
-    box-shadow: -15px 0 40px #08090cbf;
+    background: #101116;
+    background-color: #101116;
+    border-left: 1px solid rgba(255, 158, 67, .22);
+    box-shadow: -18px 0 40px rgba(8, 9, 12, .8);
+    opacity: 1;
+    overflow-y: auto;
     transform: translateX(105%);
     transition: transform .3s ease;
   }
-  .site-nav.open { transform: translateX(0); }
+  .site-nav.open {
+    background: #101116;
+    background-color: #101116;
+    opacity: 1;
+    transform: translateX(0);
+  }
   .site-nav a:not(.nav-button) {
     width: 100%;
     padding: 10px 0;

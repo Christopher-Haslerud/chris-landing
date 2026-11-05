@@ -224,6 +224,7 @@
     menuButton?.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
     navigation?.classList.toggle('open', open);
     body.classList.toggle('menu-open', open);
+    document.body.style.overflow = open ? 'hidden' : '';
   };
 
   menuButton?.addEventListener('click', () => {
