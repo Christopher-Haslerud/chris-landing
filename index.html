@@ -16,20 +16,50 @@
 
   <header class="site-header">
     <a class="brand" href="#top" aria-label="Christopher Haslerud, home"><span>CH</span></a>
+    <div class="header-controls" aria-label="Header controls">
+      <div class="language-switcher header-language-switcher" aria-label="Language selector">
+        <button class="language-button" type="button" aria-expanded="false" aria-controls="language-menu-mobile" aria-label="Change language">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 2.5a9.5 9.5 0 1 0 9.5 9.5A9.5 9.5 0 0 0 12 2.5Zm7.14 8.5h-3.18a15.77 15.77 0 0 0-1.25-4.14A7.88 7.88 0 0 1 19.14 11ZM12 4.05A13.82 13.82 0 0 1 13.96 11H10.04A13.82 13.82 0 0 1 12 4.05ZM4.86 13h3.18a15.77 15.77 0 0 0 1.25 4.14A7.88 7.88 0 0 1 4.86 13Zm3.18-8h-3.18A7.88 7.88 0 0 1 9.29 9.14 15.77 15.77 0 0 0 8.04 5Zm-3.18 10h3.18a15.77 15.77 0 0 1 1.25 4.14A7.88 7.88 0 0 1 4.86 15Zm7.1 4.95A13.82 13.82 0 0 1 10.04 13h3.92a13.82 13.82 0 0 1-1.96 6.95ZM14.71 15a15.77 15.77 0 0 0 1.25-4.14h3.18A7.88 7.88 0 0 1 14.71 15Zm4.43-8.5h-3.18A15.77 15.77 0 0 0 14.71 2.36 7.88 7.88 0 0 1 19.14 6.5ZM9.29 2.36A15.77 15.77 0 0 0 8.04 6.5H4.86A7.88 7.88 0 0 1 9.29 2.36Z"/>
+          </svg>
+          <span class="language-current">NO</span>
+        </button>
+        <ul class="language-menu" id="language-menu-mobile" role="menu" aria-label="Language menu">
+          <li><button class="language-option active" type="button" data-lang="nb" role="menuitemradio" aria-checked="true">Norsk</button></li>
+          <li><button class="language-option" type="button" data-lang="en" role="menuitemradio" aria-checked="false">English</button></li>
+          <li><button class="language-option" type="button" data-lang="fr" role="menuitemradio" aria-checked="false">Français</button></li>
+          <li><button class="language-option" type="button" data-lang="pt-pt" role="menuitemradio" aria-checked="false">Português (PT)</button></li>
+        </ul>
+      </div>
+    </div>
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open navigation">
       <span></span><span></span><span></span>
     </button>
     <nav class="site-nav" id="site-nav" aria-label="Main navigation">
-      <a href="#about"><span>01.</span> About</a>
-      <a href="#experience"><span>02.</span> Experience</a>
-      <a href="#featured"><span>03.</span> Featured</a>
-      <a href="#projects"><span>04.</span> Projects</a>
-      <a href="#contact"><span>05.</span> Contact</a>
-      <a class="nav-button" href="#experience">Experience <span>↗</span></a>
+      <a href="#about"><span>01.</span> <span data-i18n="nav.about">About</span></a>
+      <a href="#experience"><span>02.</span> <span data-i18n="nav.experience">Experience</span></a>
+      <a href="#featured"><span>03.</span> <span data-i18n="nav.featured">Featured</span></a>
+      <a href="#projects"><span>04.</span> <span data-i18n="nav.projects">Projects</span></a>
+      <a href="#contact"><span>05.</span> <span data-i18n="nav.contact">Contact</span></a>
+      <div class="language-switcher nav-language-switcher" aria-label="Language selector">
+        <button class="language-button" type="button" aria-expanded="false" aria-controls="language-menu-header" aria-label="Change language">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 2.5a9.5 9.5 0 1 0 9.5 9.5A9.5 9.5 0 0 0 12 2.5Zm7.14 8.5h-3.18a15.77 15.77 0 0 0-1.25-4.14A7.88 7.88 0 0 1 19.14 11ZM12 4.05A13.82 13.82 0 0 1 13.96 11H10.04A13.82 13.82 0 0 1 12 4.05ZM4.86 13h3.18a15.77 15.77 0 0 0 1.25 4.14A7.88 7.88 0 0 1 4.86 13Zm3.18-8h-3.18A7.88 7.88 0 0 1 9.29 9.14 15.77 15.77 0 0 0 8.04 5Zm-3.18 10h3.18a15.77 15.77 0 0 1 1.25 4.14A7.88 7.88 0 0 1 4.86 15Zm7.1 4.95A13.82 13.82 0 0 1 10.04 13h3.92a13.82 13.82 0 0 1-1.96 6.95ZM14.71 15a15.77 15.77 0 0 0 1.25-4.14h3.18A7.88 7.88 0 0 1 14.71 15Zm4.43-8.5h-3.18A15.77 15.77 0 0 0 14.71 2.36 7.88 7.88 0 0 1 19.14 6.5ZM9.29 2.36A15.77 15.77 0 0 0 8.04 6.5H4.86A7.88 7.88 0 0 1 9.29 2.36Z"/>
+          </svg>
+          <span class="language-current">NO</span>
+        </button>
+        <ul class="language-menu" id="language-menu-header" role="menu" aria-label="Language menu">
+          <li><button class="language-option active" type="button" data-lang="nb" role="menuitemradio" aria-checked="true">Norsk</button></li>
+          <li><button class="language-option" type="button" data-lang="en" role="menuitemradio" aria-checked="false">English</button></li>
+          <li><button class="language-option" type="button" data-lang="fr" role="menuitemradio" aria-checked="false">Français</button></li>
+          <li><button class="language-option" type="button" data-lang="pt-pt" role="menuitemradio" aria-checked="false">Português (PT)</button></li>
+        </ul>
+      </div>
+      <a class="nav-button" href="#experience"><span data-i18n="nav.button">Experience</span> <span>↗</span></a>
     </nav>
   </header>
 
-  <aside class="social-rail" aria-label="Social links">
+  <aside class="social-rail" aria-label="Social links and language selector">
     <a href="https://github.com/Christopher-Haslerud/" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .8a11.2 11.2 0 0 0-3.54 21.83c.56.1.77-.24.77-.54v-2.1c-3.13.68-3.79-1.33-3.79-1.33-.51-1.3-1.25-1.65-1.25-1.65-1.02-.7.08-.68.08-.68 1.13.08 1.72 1.16 1.72 1.16 1 .1.78 2.11 3.37 1.5.1-.73.39-1.22.7-1.5-2.5-.28-5.13-1.25-5.13-5.55 0-1.22.44-2.22 1.16-3-.12-.29-.5-1.43.11-2.98 0 0 .95-.3 3.08 1.15a10.7 10.7 0 0 1 5.6 0c2.14-1.45 3.08-1.15 3.08-1.15.62 1.55.23 2.69.12 2.98.72.78 1.15 1.78 1.15 3 0 4.31-2.64 5.26-5.15 5.54.4.35.75 1.03.75 2.08v3.08c0 .3.2.65.78.54A11.2 11.2 0 0 0 12 .8Z"/></svg>
     </a>
@@ -47,22 +77,22 @@
   </aside>
   <main id="main">
     <section class="hero" id="top" aria-labelledby="hero-title">
-      <p class="eyebrow reveal">Hi, my name is</p>
+      <p class="eyebrow reveal" data-i18n="hero.eyebrow">Hi, my name is</p>
       <h1 class="hero-name reveal" id="hero-title">Christopher Haslerud<span>.</span></h1>
-      <h2 class="hero-role reveal">I make complex change easier to navigate.</h2>
-      <p class="hero-copy reveal">I’m a Product Owner working across financial services, digital products, and international transformation. I bring business and technology teams together to turn complex needs into practical solutions.</p>
-      <a class="outline-button reveal" href="#about">Get to know me <span>↓</span></a>
+      <h2 class="hero-role reveal" data-i18n="hero.role">I make complex change easier to navigate.</h2>
+      <p class="hero-copy reveal" data-i18n="hero.copy">I’m a Product Owner working across financial services, digital products, and international transformation. I bring business and technology teams together to turn complex needs into practical solutions.</p>
+      <a class="outline-button reveal" href="#about"><span data-i18n="hero.button">Get to know me</span> <span>↓</span></a>
       <div class="hero-index" aria-hidden="true">01 <i></i> 05</div>
     </section>
 
     <section class="section about-section" id="about" aria-labelledby="about-title">
-      <h2 class="section-heading" id="about-title">About</h2>
+      <h2 class="section-heading" id="about-title" data-i18n="about.heading">About</h2>
       <div class="about-grid">
         <div class="body-copy">
-          <p>Hello! I’m Christopher, a Product Owner based in Moss, Norway. After several years abroad, I’ve returned to Norway and am building a long-term career here.</p>
-          <p>At Euronext Securities, I’m part of a transformation programme harmonising business processes and digital services across five European markets. I focus on client master data and securities account administration, translating business, user, and regulatory needs into clear requirements and functional solutions.</p>
-          <p>Previously, I've had product owner responsibilities for the MyVPS web application, used by banks and financial institutions across the Nordics and Europe. I’ve also worked in client management and financial operations, and completed Le Wagon’s part-time web development course to deepen my understanding of software, databases, and APIs.</p>
-          <p>I enjoy the space where <strong>business understanding, technology, and collaboration</strong> meet—and helping teams turn a shared direction into dependable delivery.</p>
+          <p data-i18n="about.p1">Hello! I’m Christopher, a Product Owner based in Moss, Norway. After several years abroad, I’ve returned to Norway and am building a long-term career here.</p>
+          <p data-i18n="about.p2">At Euronext Securities, I’m part of a transformation programme harmonising business processes and digital services across five European markets. I focus on client master data and securities account administration, translating business, user, and regulatory needs into clear requirements and functional solutions.</p>
+          <p data-i18n="about.p3">Previously, I've had product owner responsibilities for the MyVPS web application, used by banks and financial institutions across the Nordics and Europe. I’ve also worked in client management and financial operations, and completed Le Wagon’s part-time web development course to deepen my understanding of software, databases, and APIs.</p>
+          <p data-i18n="about.p4" data-i18n-html="true">I enjoy the space where <strong>business understanding, technology, and collaboration</strong> meet—and helping teams turn a shared direction into dependable delivery.</p>
         </div>
         <div class="about-aside">
           <figure class="portrait">
@@ -70,14 +100,14 @@
               <img src="1O9A6643.jpg" alt="Christopher Haslerud" loading="lazy">
             </div>
           </figure>
-          <p class="eyebrow">A FEW THINGS I BRING</p>
+          <p class="eyebrow" data-i18n="about.skillsHeader">A FEW THINGS I BRING</p>
           <ul class="skill-list">
-            <li>Product ownership</li><li>Business analysis</li>
-            <li>Requirements &amp; process mapping</li><li>Backlog prioritisation</li>
-            <li>Stakeholder alignment</li><li>Financial services</li>
-            <li>Agile delivery</li><li>Jira &amp; Confluence</li>
+            <li data-i18n="skill.1">Product ownership</li><li data-i18n="skill.2">Business analysis</li>
+            <li data-i18n="skill.3">Requirements &amp; process mapping</li><li data-i18n="skill.4">Backlog prioritisation</li>
+            <li data-i18n="skill.5">Stakeholder alignment</li><li data-i18n="skill.6">Financial services</li>
+            <li data-i18n="skill.7">Agile delivery</li><li data-i18n="skill.8">Jira &amp; Confluence</li>
           </ul>
-          <div class="location-card"><span class="location-pin">⌖</span><div><b>Based in Moss</b><small>Norway · Open to meaningful work</small></div></div>
+          <div class="location-card"><span class="location-pin">⌖</span><div><b data-i18n="location.label">Based in Moss</b><small data-i18n="location.meta">Norway · Open to meaningful work</small></div></div>
         </div>
       </div>
     </section>
@@ -178,7 +208,7 @@
     </section>
   </main>
 -->
-  <footer class="site-footer"><p>Designed with inspiration from <a href="https://v4.brittanychiang.com/" target="_blank" rel="noopener noreferrer">Brittany Chiang’s v4 portfolio</a>; further tailored by Christopher.</p><a href="#top">Back to top ↑</a></footer>
+  <footer class="site-footer"><p><span data-i18n="footer.before">Designed with inspiration from</span> <a href="https://v4.brittanychiang.com/" target="_blank" rel="noopener noreferrer">Brittany Chiang’s v4 portfolio</a><span data-i18n="footer.after">; further tailored by Christopher.</span></p><a href="#top" data-i18n="footer.top">Back to top ↑</a></footer>
   <script src="script.js"></script>
 </body>
 </html>
