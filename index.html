@@ -1,5 +1,8 @@
 <!doctype html>
 <html lang="en">
+<!--
+  The <head> contains information about the page, browser settings, and links to CSS, fonts, and the favicon.
+-->
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -31,17 +34,34 @@ Produkteier,
 Produktleder,
 ">
   <title>Christopher Haslerud — Product Owner</title>
+
+  <!--
+    These links tell the browser which icon to use for the tab,
+    browser bookmarks, and mobile home-screen shortcuts.
+    The SVG is the main icon, PNG is a fallback, and apple-touch-icon
+    is used on iPhones/iPads.
+  -->
   <link rel="icon" type="image/svg+xml" href="favicon-final-1.svg">
   <link rel="icon" type="image/png" href="favicon-final-1.png">
   <link rel="apple-touch-icon" href="favicon-final-1.png">
+<!---
+    Tells page where to load fonts from, how to connect to Google Fonts efficiently, and which CSS file to use for styling the page
+ -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!--
+    This is the visible page content.
+  -->
   <a class="skip-link" href="#main">Skip to content</a>
 
+  <!--
+    Header: the top navigation and site branding.
+    This contains the logo, menu links, and language selector.
+  -->
   <header class="site-header">
     <a class="brand" href="#top" aria-label="Christopher Haslerud, home"><span>CH</span></a>
     <div class="header-controls" aria-label="Header controls">
@@ -87,6 +107,10 @@ Produktleder,
     </nav>
   </header>
 
+  <!--
+    Left-side social icons.
+    These are links to external profiles such as GitHub, LinkedIn, and Goodreads.
+  -->
   <aside class="social-rail" aria-label="Social links and language selector">
     <a href="https://github.com/Christopher-Haslerud/" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .8a11.2 11.2 0 0 0-3.54 21.83c.56.1.77-.24.77-.54v-2.1c-3.13.68-3.79-1.33-3.79-1.33-.51-1.3-1.25-1.65-1.25-1.65-1.02-.7.08-.68.08-.68 1.13.08 1.72 1.16 1.72 1.16 1 .1.78 2.11 3.37 1.5.1-.73.39-1.22.7-1.5-2.5-.28-5.13-1.25-5.13-5.55 0-1.22.44-2.22 1.16-3-.12-.29-.5-1.43.11-2.98 0 0 .95-.3 3.08 1.15a10.7 10.7 0 0 1 5.6 0c2.14-1.45 3.08-1.15 3.08-1.15.62 1.55.23 2.69.12 2.98.72.78 1.15 1.78 1.15 3 0 4.31-2.64 5.26-5.15 5.54.4.35.75 1.03.75 2.08v3.08c0 .3.2.65.78.54A11.2 11.2 0 0 0 12 .8Z"/></svg>
@@ -103,7 +127,14 @@ Produktleder,
     <a href="mailto:?subject=Hello%20Christopher">christopher.haslerud@gmail.com</a>
     <span class="rail-line" aria-hidden="true"></span>
   </aside>
+
+  <!--
+    Main content area.
+  -->
   <main id="main">
+    <!--
+      Hero section: the first screen people see - includes intro text, name, role, and a call-to-action button.
+    -->
     <section class="hero" id="top" aria-labelledby="hero-title">
       <p class="eyebrow reveal" data-i18n="hero.eyebrow">Hi, my name is</p>
       <h1 class="hero-name reveal" id="hero-title">Christopher Haslerud<span>.</span></h1>
@@ -113,6 +144,9 @@ Produktleder,
       <div class="hero-index" aria-hidden="true">01 <i></i> 05</div>
     </section>
 
+    <!--
+      About section - this section includes text and a short list of skills.
+    -->
     <section class="section about-section" id="about" aria-labelledby="about-title">
       <h2 class="section-heading" id="about-title" data-i18n="about.heading">About</h2>
       <div class="about-grid">
@@ -140,6 +174,9 @@ Produktleder,
       </div>
     </section>
 
+    <!--
+      Experience section: shows work history and roles - the tabs let the user switch between different jobs.
+    -->
     <section class="section experience-section" id="experience" aria-labelledby="experience-title">
       <h2 class="section-heading" id="experience-title" data-i18n="experience.heading">Where I’ve worked</h2>
       <div class="experience-layout">
@@ -204,6 +241,9 @@ Produktleder,
       </div>
     </section>
 
+    <!--
+      Featured section: highlights one important project or initiative.
+    -->
     <section class="section featured-section" id="featured" aria-labelledby="featured-title">
       <h2 class="section-heading" id="featured-title" data-i18n="featured.heading">Featured work</h2>
       <div class="featured-card">
@@ -226,6 +266,9 @@ Produktleder,
       </div>
     </section>
 
+    <!--
+      Projects section: a grid of smaller project cards.
+    -->
     <section class="section projects-section" id="projects" aria-labelledby="projects-title">
       <h2 class="section-heading" id="projects-title" data-i18n="projects.heading">A few things I’ve worked on</h2>
       <div class="project-grid">
@@ -258,7 +301,14 @@ Produktleder,
     </section>
   </main>
 -->
+  <!--
+    Footer: closing information and a simple back-to-top link.
+  -->
   <footer class="site-footer"><p><span data-i18n="footer.before">Designed with inspiration from</span> <a href="https://v4.brittanychiang.com/" target="_blank" rel="noopener noreferrer">Brittany Chiang’s v4 portfolio</a><span data-i18n="footer.after">; further tailored by Christopher.</span></p><a href="#top" data-i18n="footer.top">Back to top ↑</a></footer>
+
+  <!--
+    JavaScript file for interactions such as language switching and menu behavior.
+  -->
   <script src="script.js"></script>
 </body>
 </html>
