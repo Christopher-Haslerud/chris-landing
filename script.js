@@ -77,8 +77,8 @@
       'experience.finance.tag3': 'Operasjonell drift',
       'featured.heading': 'Utvalgte prosjekter',
       'featured.eyebrow': 'EURONEXT SECURITIES · INTERNASJONAL TRANSFORMASJON',
-      'featured.title': 'Én plattform. Fem europeiske kapitalmarkeder.',
-      'featured.summary': 'Et omfattende transformasjonsprogram for å samle og harmonisere forretningsprosesser og digitale tjenester på tvers av fem europeiske markeder. Jeg jobber med klientmasterdata og verdipapirkontoadministrasjon, og bidrar til å omsette komplekse forretningsbehov til felles digitale løsninger.',
+      'featured.title': 'Én plattform. Fem europeiske markeder.',
+      'featured.summary': 'Et omfattende transformasjonsprogram for å samle og harmonisere forretningsprosesser og digitale tjenester på tvers av fem europeiske markeder.',
       'featured.fact.role.label': 'ROLLE',
       'featured.fact.role.value': 'Produkteier',
       'featured.fact.collaboration.label': 'SAMARBEID',
@@ -579,6 +579,79 @@
   });
 
   applyTranslations();
+
+  const featuredSlides = [...document.querySelectorAll('.featured-slide')];
+  const featuredTrack = document.querySelector('.featured-track');
+  const featuredViewport = document.querySelector('.featured-viewport');
+
+  if (featuredSlides.length && featuredTrack && featuredViewport) {
+    const mobileFeatured = window.matchMedia('(max-width: 600px)').matches;
+    let featuredIndex = mobileFeatured ? 0 : 2;
+
+    const updateFeaturedActiveState = () => {
+      const viewportCenter = featuredViewport.clientWidth / 2;
+      let nearestIndex = featuredIndex;
+      let smallestDistance = Number.POSITIVE_INFINITY;
+
+      featuredSlides.forEach((slide, index) => {
+        const slideCenter = slide.offsetLeft + slide.offsetWidth / 2 - featuredTrack.scrollLeft;
+        const distance = Math.abs(slideCenter - viewportCenter);
+        if (distance < smallestDistance) {
+          smallestDistance = distance;
+          nearestIndex = index;
+        }
+      });
+
+      featuredIndex = nearestIndex;
+
+      featuredSlides.forEach((slide, index) => {
+        const distance = Math.abs(index - featuredIndex);
+        const active = index === featuredIndex;
+        const adjacentOpacity = active ? 1 : distance === 1 ? 0.7 : 0.22;
+        const adjacentScale = active ? 1 : distance === 1 ? 0.98 : 0.94;
+
+        slide.classList.toggle('active', active);
+        slide.style.opacity = String(adjacentOpacity);
+        slide.style.transform = active ? 'scale(1)' : `scale(${adjacentScale})`;
+      });
+    };
+
+    const centerFeaturedSlide = (index) => {
+      const target = featuredSlides[index];
+      if (!target) return;
+
+      const targetLeft = target.offsetLeft;
+      const viewportWidth = featuredViewport.clientWidth;
+      const targetWidth = target.offsetWidth;
+      const desiredScroll = targetLeft - (viewportWidth - targetWidth) / 2;
+      featuredTrack.scrollTo({
+        left: desiredScroll,
+        behavior: 'smooth'
+      });
+      featuredIndex = index;
+      updateFeaturedActiveState();
+    };
+
+    const moveFeatured = (direction) => {
+      const nextIndex = (featuredIndex + direction + featuredSlides.length) % featuredSlides.length;
+      centerFeaturedSlide(nextIndex);
+    };
+
+    featuredTrack.addEventListener('scroll', updateFeaturedActiveState, { passive: true });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'ArrowRight') moveFeatured(1);
+      if (event.key === 'ArrowLeft') moveFeatured(-1);
+    });
+
+    window.addEventListener('resize', () => {
+      const isMobile = window.matchMedia('(max-width: 600px)').matches;
+      if (isMobile && featuredIndex > featuredSlides.length - 1) {
+        featuredIndex = 0;
+      }
+      centerFeaturedSlide(featuredIndex);
+    }, { passive: true });
+    centerFeaturedSlide(featuredIndex);
+  }
 
   const revealItems = document.querySelectorAll('.reveal, .section-heading, .about-grid, .experience-layout, .featured-card, .project-card');
   if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {

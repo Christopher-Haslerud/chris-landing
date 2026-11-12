@@ -570,31 +570,159 @@ main {
 }
 
 /* Featured case study */
+.featured-carousel {
+  position: relative;
+  width: 100%;
+  margin-top: 18px;
+}
+.featured-viewport {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(0, 0, 0, 0.5) 8%,
+    rgba(0, 0, 0, 1) 22%,
+    rgba(0, 0, 0, 1) 78%,
+    rgba(0, 0, 0, 0.5) 92%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(0, 0, 0, 0.5) 8%,
+    rgba(0, 0, 0, 1) 22%,
+    rgba(0, 0, 0, 1) 78%,
+    rgba(0, 0, 0, 0.5) 92%,
+    transparent 100%
+  );
+}
+.featured-track {
+  display: flex;
+  align-items: stretch;
+  gap: 16px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 10px clamp(28px, 7vw, 150px) 18px;
+  scroll-behavior: smooth;
+  scroll-snap-type: x proximity;
+}
+.featured-track::-webkit-scrollbar {
+  display: none;
+}
+.featured-slide {
+  flex: 0 0 min(38vw, 500px);
+  max-width: min(38vw, 500px);
+  opacity: 0.2;
+  transform: scale(.94);
+  transition: opacity .55s ease, transform .55s ease, filter .55s ease;
+  filter: saturate(.72) blur(.15px);
+  scroll-snap-align: center;
+}
+.featured-slide.active {
+  opacity: 1;
+  transform: scale(1.02);
+  filter: none;
+}
 .featured-card {
   position: relative;
-  min-height: 430px;
+  display: flex;
+  height: 670px;
   overflow: hidden;
-  border: 1px solid var(--lightest-navy);
-  border-radius: 4px;
+  border: 1px solid rgba(255, 158, 67, .18);
+  border-radius: 6px;
   background: linear-gradient(115deg, #292c35 0%, #22252d 68%, #191b21 100%);
   box-shadow: 0 18px 45px -25px var(--navy-shadow);
+  transition: border-color .45s ease, box-shadow .45s ease, transform .45s ease, filter .45s ease;
+}
+.featured-slide.active .featured-card {
+  transform: translateY(-6px) scale(1.04);
+  border-color: rgba(255, 255, 255, .12);
+  box-shadow: 0 30px 60px -28px rgba(8, 9, 12, .96);
+  filter: brightness(1.06) saturate(1.08);
+}
+.featured-card--1,
+.featured-card--2,
+.featured-card--3,
+.featured-card--4,
+.featured-card--5 {
+  --card-accent: var(--accent);
+  --card-surface: linear-gradient(115deg, #2b2d36 0%, #1f2330 52%, #191d26 100%);
+  --card-glow: rgba(255, 158, 67, .14);
+  border-color: rgba(255, 255, 255, .08);
+  background: var(--card-surface);
+}
+.featured-card--1 .eyebrow,
+.featured-card--2 .eyebrow,
+.featured-card--3 .eyebrow,
+.featured-card--4 .eyebrow,
+.featured-card--5 .eyebrow {
+  color: var(--card-accent);
+}
+.featured-card--1 .network-node,
+.featured-card--1 .network-core,
+.featured-card--2 .network-node,
+.featured-card--2 .network-core,
+.featured-card--3 .network-node,
+.featured-card--3 .network-core,
+.featured-card--4 .network-node,
+.featured-card--4 .network-core,
+.featured-card--5 .network-node,
+.featured-card--5 .network-core {
+  box-shadow: 0 0 22px var(--card-glow);
+}
+.featured-card--1 .network-node,
+.featured-card--2 .network-node,
+.featured-card--3 .network-node,
+.featured-card--4 .network-node,
+.featured-card--5 .network-node {
+  border-color: rgba(255,255,255,.16);
+}
+.featured-card--1 .network-core,
+.featured-card--2 .network-core,
+.featured-card--3 .network-core,
+.featured-card--4 .network-core,
+.featured-card--5 .network-core {
+  border-color: var(--card-accent);
+  box-shadow: 0 0 28px var(--card-glow);
+}
+.featured-card--1 .featured-facts div span,
+.featured-card--1 .text-link,
+.featured-card--2 .featured-facts div span,
+.featured-card--2 .text-link,
+.featured-card--3 .featured-facts div span,
+.featured-card--3 .text-link,
+.featured-card--4 .featured-facts div span,
+.featured-card--4 .text-link,
+.featured-card--5 .featured-facts div span,
+.featured-card--5 .text-link {
+  color: var(--card-accent);
 }
 .featured-content {
   position: relative;
   z-index: 2;
-  width: 65%;
-  padding: 42px 38px;
+  width: 60%;
+  height: 100%;
+  padding: 42px 32px 52px 38px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 .featured-content .eyebrow { margin: 0 0 18px; font-size: 9px; }
 .featured-content h3 {
   margin: 0;
   color: var(--lightest-slate);
-  font-size: clamp(35px, 5vw, 54px);
+  font-size: clamp(31px, 4.2vw, 50px);
   line-height: 1.02;
   letter-spacing: -.04em;
+  max-width: 90%;
 }
 .featured-description {
-  max-width: 490px;
+  max-width: 430px;
   margin: 20px 0 24px;
   font-size: 14px;
   line-height: 1.6;
@@ -602,7 +730,9 @@ main {
 .featured-facts {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px 27px;
+  gap: 18px 24px;
+  max-width: 92%;
+  margin-top: 0;
 }
 .featured-facts div span, .featured-facts div b { display: block; }
 .featured-facts div span {
@@ -630,52 +760,242 @@ main {
   display: grid;
   place-items: center;
   opacity: .94;
+  z-index: 1;
 }
 .network-orbit {
   position: absolute;
   width: 330px;
   height: 180px;
-  border: 1px solid rgba(255, 158, 67, .24);
-  border-radius: 50%;
-  transform: rotate(-28deg);
+  border: 1px solid rgba(255, 255, 255, .12);
+  border-radius: 18px;
+  transform: rotate(-18deg);
+  background: rgba(255, 255, 255, .02);
 }
 .orbit-two {
   width: 230px;
   height: 320px;
-  transform: rotate(32deg);
+  transform: rotate(18deg);
 }
 .network-node {
   position: absolute;
   display: grid;
-  width: 42px;
-  height: 42px;
+  width: 46px;
+  height: 46px;
   place-items: center;
-  border: 1px solid rgba(255, 158, 67, .65);
-  border-radius: 50%;
-  background: var(--navy);
-  color: var(--accent);
-  font: 10px var(--font-mono);
-  box-shadow: 0 0 24px rgba(255, 158, 67, .14);
+  border: 1px solid rgba(255, 255, 255, .18);
+  border-radius: 12px;
+  background: rgba(10, 12, 17, .9);
+  color: var(--lightest-slate);
+  font: 9px var(--font-mono);
+  letter-spacing: .08em;
+  text-transform: uppercase;
 }
-.node-norway { top: 19%; left: 50%; }
-.node-denmark { top: 37%; right: 11%; }
-.node-portugal { right: 19%; bottom: 15%; }
-.node-italy { bottom: 17%; left: 22%; }
-.node-greece { top: 32%; left: 12%; }
+.node-norway { top: 18%; left: 51%; }
+.node-denmark { top: 38%; right: 12%; }
+.node-portugal { right: 18%; bottom: 15%; }
+.node-italy { bottom: 18%; left: 20%; }
+.node-greece { top: 31%; left: 12%; }
 .network-core {
   display: grid;
-  width: 94px;
-  height: 94px;
+  width: 104px;
+  height: 104px;
   place-items: center;
   border: 1px solid var(--accent);
-  border-radius: 50%;
-  background: #191b21;
+  border-radius: 18px;
+  background: rgba(16, 18, 23, .92);
   color: var(--lightest-slate);
   font: 10px/1.5 var(--font-mono);
   text-align: center;
-  box-shadow: 0 0 38px rgba(255, 158, 67, .17);
+  letter-spacing: .12em;
+  text-transform: uppercase;
 }
 
+.featured-card--1 .featured-visual {
+  background: linear-gradient(135deg, rgba(255, 158, 67, .06), rgba(255,255,255,.02) 45%, rgba(255,255,255,0));
+}
+.featured-card--1 .featured-visual::before {
+  content: "";
+  position: absolute;
+  inset: 18% 14% 18% 18%;
+  border: 1px solid rgba(255, 255, 255, .12);
+  border-radius: 18px;
+  background: linear-gradient(180deg, rgba(255,255,255,.02), transparent 42%);
+  box-shadow: inset 0 0 0 1px rgba(255, 158, 67, .08);
+}
+.featured-card--1 .featured-visual::after {
+  content: "";
+  position: absolute;
+  left: 24%;
+  right: 18%;
+  top: 54%;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(255,158,67,0), rgba(255,158,67,.9), rgba(255,255,255,.2), rgba(255,158,67,0));
+  box-shadow: 0 -22px 0 0 rgba(255,255,255,.16), 0 22px 0 0 rgba(255,158,67,.28);
+}
+.featured-card--1 .network-orbit { display: none; }
+.featured-card--1 .network-node { width: 40px; height: 40px; border-radius: 10px; }
+.featured-card--1 .node-norway { top: 20%; left: 56%; }
+.featured-card--1 .node-denmark { top: 40%; right: 16%; }
+.featured-card--1 .node-portugal { right: 21%; bottom: 16%; }
+.featured-card--1 .node-italy { bottom: 18%; left: 26%; }
+.featured-card--1 .node-greece { top: 30%; left: 15%; }
+.featured-card--1 .network-core {
+  width: 90px; height: 90px;
+  border-radius: 16px;
+  background: rgba(10, 12, 17, .9);
+}
+
+.featured-card--2 .featured-visual {
+  background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,0));
+}
+.featured-card--2 .featured-visual::before {
+  content: "";
+  position: absolute;
+  inset: 20% 18% 20% 18%;
+  border-radius: 22px;
+  background: linear-gradient(135deg, rgba(255,255,255,.03), rgba(255,255,255,0) 70%);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.08), 0 0 0 1px rgba(255,255,255,.03);
+}
+.featured-card--2 .featured-visual::after {
+  content: "";
+  position: absolute;
+  inset: 26% 22% 26% 22%;
+  background: repeating-linear-gradient(90deg, rgba(255,255,255,.06) 0, rgba(255,255,255,.06) 1px, transparent 1px, transparent 18px), repeating-linear-gradient(180deg, rgba(255,255,255,.04) 0, rgba(255,255,255,.04) 1px, transparent 1px, transparent 18px);
+  border-radius: 12px;
+}
+.featured-card--2 .network-orbit { display: none; }
+.featured-card--2 .network-node { border-radius: 10px; width: 42px; height: 42px; }
+.featured-card--2 .node-norway { top: 16%; left: 55%; }
+.featured-card--2 .node-denmark { top: 42%; right: 14%; }
+.featured-card--2 .node-portugal { right: 18%; bottom: 21%; }
+.featured-card--2 .node-italy { left: 18%; bottom: 22%; }
+.featured-card--2 .node-greece { top: 35%; left: 14%; }
+.featured-card--2 .network-core {
+  width: 92px; height: 92px;
+  border-radius: 14px;
+  background: rgba(10, 12, 17, .92);
+}
+
+.featured-card--3 .featured-visual {
+  background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0));
+}
+.featured-card--3 .featured-visual::before {
+  content: "";
+  position: absolute;
+  inset: 20% 14% 20% 14%;
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 18px;
+  background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,0));
+  transform: skewY(-8deg);
+}
+.featured-card--3 .featured-visual::after {
+  content: "";
+  position: absolute;
+  inset: 25% 20% 25% 20%;
+  border: 1px solid rgba(255, 158, 67, .18);
+  border-radius: 12px;
+  background: linear-gradient(90deg, rgba(255,255,255,.03), transparent 30%, rgba(255,158,67,.08));
+}
+.featured-card--3 .network-orbit { display: none; }
+.featured-card--3 .network-node { border-radius: 8px; width: 38px; height: 38px; }
+.featured-card--3 .node-norway { top: 18%; left: 58%; }
+.featured-card--3 .node-denmark { top: 43%; right: 12%; }
+.featured-card--3 .node-portugal { right: 18%; bottom: 13%; }
+.featured-card--3 .node-italy { bottom: 14%; left: 22%; }
+.featured-card--3 .node-greece { top: 31%; left: 14%; }
+.featured-card--3 .network-core {
+  width: 96px; height: 96px;
+  border-radius: 20px;
+  transform: rotate(-8deg);
+}
+
+.featured-card--4 .featured-visual {
+  background: linear-gradient(135deg, rgba(255,255,255,.03), rgba(255,255,255,0));
+}
+.featured-card--4 .featured-visual::before {
+  content: "";
+  position: absolute;
+  inset: 18% 22% 18% 22%;
+  border-radius: 14px;
+  background: repeating-linear-gradient(90deg, rgba(255,255,255,.06) 0, rgba(255,255,255,.06) 1px, transparent 1px, transparent 18px), repeating-linear-gradient(180deg, rgba(255,255,255,.05) 0, rgba(255,255,255,.05) 1px, transparent 1px, transparent 20px);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.09);
+}
+.featured-card--4 .featured-visual::after {
+  content: "";
+  position: absolute;
+  left: 32%;
+  right: 20%;
+  top: 36%;
+  height: 28%;
+  border-left: 1px solid rgba(255,158,67,.52);
+  border-right: 1px solid rgba(255,255,255,.14);
+  border-radius: 8px;
+  background: linear-gradient(90deg, rgba(255,158,67,.12), rgba(255,255,255,.02));
+}
+.featured-card--4 .network-orbit { display: none; }
+.featured-card--4 .network-node {
+  width: 38px; height: 38px; border-radius: 9px;
+}
+.featured-card--4 .node-norway { top: 18%; left: 55%; }
+.featured-card--4 .node-denmark { top: 42%; right: 13%; }
+.featured-card--4 .node-portugal { right: 18%; bottom: 18%; }
+.featured-card--4 .node-italy { bottom: 18%; left: 22%; }
+.featured-card--4 .node-greece { top: 31%; left: 14%; }
+.featured-card--4 .network-core {
+  width: 88px; height: 88px;
+  border-radius: 16px;
+}
+
+.featured-card--5 .featured-visual {
+  background: linear-gradient(135deg, rgba(255,255,255,.02), rgba(255,255,255,0));
+}
+.featured-card--5 .featured-visual::before {
+  content: "";
+  position: absolute;
+  inset: 16% 14% 16% 14%;
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 50%;
+  background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,0));
+}
+.featured-card--5 .featured-visual::after {
+  content: "";
+  position: absolute;
+  inset: 22% 20% 18% 20%;
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 50%;
+  transform: rotate(14deg);
+  background: transparent;
+}
+.featured-card--5 .network-orbit {
+  width: 270px;
+  height: 270px;
+  border-radius: 50%;
+  border-color: rgba(255,255,255,.1);
+  background: transparent;
+  transform: rotate(0deg);
+}
+.featured-card--5 .orbit-two {
+  width: 180px;
+  height: 180px;
+  transform: rotate(38deg);
+}
+.featured-card--5 .network-node {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border-color: rgba(255, 158, 67, .5);
+}
+.featured-card--5 .node-norway { top: 18%; left: 52%; }
+.featured-card--5 .node-denmark { top: 39%; right: 12%; }
+.featured-card--5 .node-portugal { right: 16%; bottom: 18%; }
+.featured-card--5 .node-italy { bottom: 18%; left: 20%; }
+.featured-card--5 .node-greece { top: 32%; left: 12%; }
+.featured-card--5 .network-core {
+  width: 92px;
+  height: 92px;
+  border-radius: 50%;
+  background: rgba(10, 12, 17, .92);
+}
 /* Projects */
 .project-grid {
   display: grid;
@@ -833,6 +1153,34 @@ main {
 @media (max-width: 600px) {
   html { scroll-padding-top: 75px; }
   body { font-size: 16px; }
+
+  .featured-track {
+    padding: 10px 0 18px;
+    gap: 12px;
+    scroll-snap-type: x mandatory;
+  }
+  .featured-viewport {
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+  .featured-slide {
+    flex: 0 0 100%;
+    max-width: 100%;
+    min-width: 100%;
+    opacity: 1;
+    transform: none;
+  }
+  .featured-card {
+    height: 620px;
+  }
+  .featured-content {
+    width: 100%;
+    padding: 30px 22px 32px;
+  }
+  .featured-visual {
+    width: 38%;
+    opacity: .72;
+  }
 
   .site-header {
     height: 74px;
