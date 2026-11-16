@@ -655,6 +655,21 @@ main {
   border-color: rgba(255, 255, 255, .08);
   background: var(--card-surface);
 }
+.featured-card--1 {
+  --card-surface: linear-gradient(125deg, #30313a 0%, #22252e 55%, #191b21 100%);
+}
+.featured-card--2 {
+  --card-surface: linear-gradient(125deg, #2b303a 0%, #222630 55%, #191b21 100%);
+}
+.featured-card--3 {
+  --card-surface: linear-gradient(125deg, #302c2a 0%, #242221 55%, #1c1b1a 100%);
+}
+.featured-card--4 {
+  --card-surface: linear-gradient(125deg, #303034 0%, #242429 55%, #1b1b20 100%);
+}
+.featured-card--5 {
+  --card-surface: linear-gradient(125deg, #2d3035 0%, #22252a 55%, #191b21 100%);
+}
 .featured-card--1 .eyebrow,
 .featured-card--2 .eyebrow,
 .featured-card--3 .eyebrow,
@@ -877,27 +892,37 @@ main {
 }
 
 .featured-card--3 .featured-visual {
-  background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0));
+  background: linear-gradient(180deg, rgba(255,158,67,.06), rgba(255,255,255,0));
 }
 .featured-card--3 .featured-visual::before {
   content: "";
   position: absolute;
   inset: 20% 14% 20% 14%;
-  border: 1px solid rgba(255,255,255,.12);
-  border-radius: 18px;
-  background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,0));
-  transform: skewY(-8deg);
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: 12px;
+  background: linear-gradient(145deg, rgba(255,158,67,.1), rgba(255,255,255,.02) 48%, rgba(255,158,67,.04));
+  transform: rotate(-6deg);
 }
 .featured-card--3 .featured-visual::after {
   content: "";
   position: absolute;
   inset: 25% 20% 25% 20%;
-  border: 1px solid rgba(255, 158, 67, .18);
-  border-radius: 12px;
-  background: linear-gradient(90deg, rgba(255,255,255,.03), transparent 30%, rgba(255,158,67,.08));
+  border: 1px solid rgba(255,158,67,.2);
+  border-radius: 10px;
+  background: linear-gradient(135deg, rgba(255,255,255,.04), transparent 55%, rgba(255,158,67,.1));
 }
 .featured-card--3 .network-orbit { display: none; }
-.featured-card--3 .network-node { border-radius: 8px; width: 38px; height: 38px; }
+.featured-card--3 .network-node {
+  width: auto;
+  min-width: 42px;
+  height: 38px;
+  padding: 0 7px;
+  border-radius: 8px;
+  border-color: rgba(255,158,67,.3);
+  color: var(--lightest-slate);
+  font-size: 7px;
+  letter-spacing: .03em;
+}
 .featured-card--3 .node-norway { top: 18%; left: 58%; }
 .featured-card--3 .node-denmark { top: 43%; right: 12%; }
 .featured-card--3 .node-portugal { right: 18%; bottom: 13%; }
@@ -906,7 +931,9 @@ main {
 .featured-card--3 .network-core {
   width: 96px; height: 96px;
   border-radius: 20px;
-  transform: rotate(-8deg);
+  border-color: var(--accent);
+  background: rgba(16, 18, 23, .94);
+  transform: rotate(-6deg);
 }
 
 .featured-card--4 .featured-visual {
