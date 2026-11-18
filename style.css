@@ -568,6 +568,77 @@ main {
   color: var(--accent);
   font: 10px var(--font-mono);
 }
+.experience-video { margin-top: 14px; }
+.experience-video-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 5px 0 7px;
+  border: 0;
+  border-bottom: 1px solid rgba(255, 158, 67, .6);
+  color: var(--accent);
+  background: transparent;
+  font: 11px var(--font-mono);
+  text-align: left;
+  cursor: pointer;
+  transition: var(--transition);
+}
+.experience-video-toggle:hover,
+.experience-video-toggle:focus-visible { color: var(--lightest-slate); border-bottom-color: var(--lightest-slate); }
+.experience-video-toggle span { transition: transform .25s ease; }
+.experience-video-toggle[aria-expanded="true"] span { transform: rotate(180deg); }
+.experience-video-dialog {
+  position: fixed;
+  inset: 0;
+  width: min(504px, calc(100vw - 32px));
+  max-width: none;
+  max-height: calc(100vh - 48px);
+  padding: 0;
+  overflow: visible;
+  border: 0;
+  background: transparent;
+  color: var(--lightest-slate);
+  opacity: 0;
+  transform: translateY(10px) scale(.98);
+  transition: opacity .24s ease, transform .24s ease;
+}
+.experience-video-dialog[open].is-open { opacity: 1; transform: translateY(0) scale(1); }
+.experience-video-dialog::backdrop {
+  background: rgba(8, 9, 12, .82);
+  backdrop-filter: blur(7px);
+  opacity: 0;
+  transition: opacity .24s ease;
+}
+.experience-video-dialog[open].is-open::backdrop { opacity: 1; }
+.experience-video-close {
+  position: absolute;
+  top: -44px;
+  right: 0;
+  display: grid;
+  width: 36px;
+  height: 36px;
+  place-items: center;
+  border: 1px solid rgba(255, 158, 67, .5);
+  border-radius: 50%;
+  background: var(--navy);
+  color: var(--lightest-slate);
+  font-size: 23px;
+  line-height: 1;
+  cursor: pointer;
+  transition: var(--transition);
+}
+.experience-video-close:hover,
+.experience-video-close:focus-visible { border-color: var(--accent); color: var(--accent); }
+.experience-video-frame {
+  width: 100%;
+  aspect-ratio: 504 / 399;
+  overflow: hidden;
+  border: 1px solid rgba(255, 158, 67, .24);
+  border-radius: 8px;
+  background: var(--light-navy);
+  box-shadow: 0 28px 80px rgba(    255, 158, 67, 0.07);
+}
+.experience-video-frame iframe { display: block; width: 100%; height: 100%; border: 0; }
 
 /* Featured case study */
 .featured-carousel {
@@ -1334,6 +1405,8 @@ main {
   .featured-content .eyebrow { max-width: 250px; line-height: 1.6; }
   .featured-content h3 { font-size: 39px; }
   .featured-description { max-width: 100%; font-size: 13px; }
+  .experience-video-dialog { max-height: calc(100vh - 64px); }
+  .experience-video-frame { aspect-ratio: auto; height: min(399px, calc(100vh - 64px)); }
   .featured-facts { gap: 15px 20px; }
   .featured-visual {
     inset: auto 0 0 auto;

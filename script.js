@@ -40,9 +40,10 @@
       'experience.euronext.li1': 'Koordinerer leveranser og følger opp fremdrift på tvers av team i Norge, Danmark, Portugal, Italia og Hellas.',
       'experience.euronext.li2': 'Omsetter forretningsmessige, brukerrelaterte og regulatoriske behov til funksjonelle løsninger innen referansedata- og verdipapirkontoadministrasjon.',
       'experience.euronext.li3': 'Utarbeider kravspesifikasjoner og beslutningsgrunnlag i tett samarbeid med utviklere, arkitekter, forretningsmiljøer og ledelse.',
-      'experience.euronext.tag1': 'Transformasjonsprosjekt',
-      'experience.euronext.tag2': 'Kravspesifikasjon',
-      'experience.euronext.tag3': 'Internasjonalt samarbeid',
+      'experience.euronext.video.toggle': 'Hør mer om rollen min her',
+      'experience.euronext.video.title': 'LinkedIn-innlegg om rollen min i Frankrike',
+      'experience.euronext.video.dialog': 'LinkedIn-video om rollen min i Frankrike',
+      'experience.euronext.video.close': 'Lukk video',
       'experience.client.date': '2022 — 2024',
       'experience.client.location': 'Porto, Portugal / Oslo, Norge',
       'experience.client.role': 'Kundeansvarlig',
@@ -77,9 +78,9 @@
       'experience.finance.tag3': 'Operasjonell drift',
       'featured.heading': 'Mine utvalgte prosjekter',
       'featured.carousel.label': 'Karusell med utvalgte prosjekter',
-      'featured.eyebrow': 'EURONEXT SECURITIES · INTERNASJONAL TRANSFORMASJON',
-      'featured.title': 'Én plattform.<br>Fem europeiske markeder.',
-      'featured.summary': 'Et omfattende transformasjonsprogram for å samle og harmonisere forretningsprosesser og digitale tjenester på tvers av fem europeiske markeder.',
+      'featured.eyebrow': 'HARMONISERING · TRANSFORMASJONSPROSJEKT',
+      'featured.title': 'Fem land.<br>En felles platform.',
+      'featured.summary': 'Et omfattende transformasjonsprogram for å samle og harmonisere forretningsprosesser og digitale tjenester på tvers av fem europeiske kapitalmarkeder.',
       'featured.fact.role.label': 'ROLLE',
       'featured.fact.role.value': 'Produkteier',
       'featured.fact.collaboration.label': 'SAMARBEID',
@@ -203,9 +204,10 @@
       'experience.euronext.li1': 'Coordinate deliverables and progress across teams in Norway, Denmark, Portugal, Italy, and Greece.',
       'experience.euronext.li2': 'Translate business, user, and regulatory needs into functional solutions for client master data and securities account administration.',
       'experience.euronext.li3': 'Prepare specifications, documentation, and decision materials with development teams, architects, business stakeholders, and senior management.',
-      'experience.euronext.tag1': 'Transformation',
-      'experience.euronext.tag2': 'Requirements',
-      'experience.euronext.tag3': 'Cross-market delivery',
+      'experience.euronext.video.toggle': 'Hear more about my role here',
+      'experience.euronext.video.title': 'LinkedIn post about my role in France',
+      'experience.euronext.video.dialog': 'LinkedIn video about my role in France',
+      'experience.euronext.video.close': 'Close video',
       'experience.client.date': '2022 — 2024',
       'experience.client.location': 'Porto, Portugal / Oslo, Norway',
       'experience.client.role': 'Client Manager',
@@ -358,9 +360,10 @@
       'experience.euronext.li1': 'Coordonne les livrables et les avancées avec des équipes en Norvège, Danemark, Portugal, Italie et Grèce.',
       'experience.euronext.li2': 'Traduit les besoins métier, utilisateurs et réglementaires en solutions fonctionnelles pour les données clients et la gestion des comptes titres.',
       'experience.euronext.li3': 'Prépare spécifications, documentation et supports de décision avec les équipes de développement, architectes, parties prenantes métier et direction.',
-      'experience.euronext.tag1': 'Transformation',
-      'experience.euronext.tag2': 'Exigences',
-      'experience.euronext.tag3': 'Livraison multi-pays',
+      'experience.euronext.video.toggle': 'En savoir plus sur mon rôle ici',
+      'experience.euronext.video.title': 'Publication LinkedIn sur mon rôle en France',
+      'experience.euronext.video.dialog': 'Vidéo LinkedIn sur mon rôle en France',
+      'experience.euronext.video.close': 'Fermer la vidéo',
       'experience.client.date': '2022 — 2024',
       'experience.client.location': 'Porto, Portugal / Oslo, Norvège',
       'experience.client.role': 'Gestionnaire client',
@@ -513,9 +516,10 @@
       'experience.euronext.li1': 'Coordeno entregas e progresso entre equipas na Noruega, Dinamarca, Portugal, Itália e Grécia.',
       'experience.euronext.li2': 'Traduzo necessidades de negócio, utilizadores e regulamentação em soluções funcionais para dados de clientes e administração de contas de valores mobiliários.',
       'experience.euronext.li3': 'Preparo especificações, documentação e materiais de decisão com equipas de desenvolvimento, arquitetos, stakeholders de negócio e gestão.',
-      'experience.euronext.tag1': 'Transformação',
-      'experience.euronext.tag2': 'Requisitos',
-      'experience.euronext.tag3': 'Entrega multi-mercado',
+      'experience.euronext.video.toggle': 'Saiba mais sobre a minha função aqui',
+      'experience.euronext.video.title': 'Publicação do LinkedIn sobre a minha função em França',
+      'experience.euronext.video.dialog': 'Vídeo do LinkedIn sobre a minha função em França',
+      'experience.euronext.video.close': 'Fechar vídeo',
       'experience.client.date': '2022 — 2024',
       'experience.client.location': 'Porto, Portugal / Oslo, Noruega',
       'experience.client.role': 'Gestor de clientes',
@@ -680,6 +684,11 @@
       if (translation) element.setAttribute('aria-label', translation);
     });
 
+    document.querySelectorAll('[data-i18n-title]').forEach((element) => {
+      const translation = locale[element.dataset.i18nTitle];
+      if (translation) element.setAttribute('title', translation);
+    });
+
     languageSwitchers.forEach((switcher) => {
       const options = [...switcher.querySelectorAll('.language-option')];
       options.forEach((option) => {
@@ -784,6 +793,49 @@
   });
 
   applyTranslations();
+
+  const experienceVideoToggle = document.querySelector('.experience-video-toggle');
+  const experienceVideoDialog = document.getElementById('euronext-role-video');
+  const experienceVideoFrame = experienceVideoDialog?.querySelector('iframe');
+  const experienceVideoClose = experienceVideoDialog?.querySelector('.experience-video-close');
+  let experienceVideoCloseTimer;
+
+  if (experienceVideoToggle && experienceVideoDialog && experienceVideoFrame) {
+    const closeExperienceVideo = () => {
+      if (!experienceVideoDialog.open) return;
+
+      experienceVideoToggle.setAttribute('aria-expanded', 'false');
+      experienceVideoDialog.classList.remove('is-open');
+      experienceVideoFrame.src = 'about:blank';
+      window.clearTimeout(experienceVideoCloseTimer);
+      const closeDelay = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 280;
+      experienceVideoCloseTimer = window.setTimeout(() => {
+        if (experienceVideoToggle.getAttribute('aria-expanded') === 'false' && experienceVideoDialog.open) {
+          experienceVideoDialog.close();
+        }
+      }, closeDelay);
+    };
+
+    experienceVideoToggle.addEventListener('click', () => {
+      const videoUrl = experienceVideoFrame.dataset.src;
+      if (!videoUrl) return;
+
+      experienceVideoToggle.setAttribute('aria-expanded', 'true');
+      experienceVideoFrame.src = `${videoUrl}&autoplay=1&mute=1`;
+      experienceVideoDialog.showModal();
+      window.requestAnimationFrame(() => experienceVideoDialog.classList.add('is-open'));
+      experienceVideoClose?.focus();
+    });
+
+    experienceVideoClose?.addEventListener('click', closeExperienceVideo);
+    experienceVideoDialog.addEventListener('click', (event) => {
+      if (event.target !== experienceVideoFrame) closeExperienceVideo();
+    });
+    experienceVideoDialog.addEventListener('cancel', (event) => {
+      event.preventDefault();
+      closeExperienceVideo();
+    });
+  }
 
   const featuredSlides = [...document.querySelectorAll('.featured-slide')];
   const featuredTrack = document.querySelector('.featured-track');
