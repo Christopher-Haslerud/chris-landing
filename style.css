@@ -525,6 +525,8 @@ main {
 }
 .experience-tab.active { border-left-color: var(--accent); }
 .experience-panel { animation: panel-in .3s ease both; }
+.experience-panel:focus:not(:focus-visible) { outline: none; }
+.experience-panel:focus-visible { outline: 2px solid var(--accent); outline-offset: 5px; }
 .experience-panel[hidden] { display: none; }
 .experience-panel .date {
   margin: 0 0 11px;
