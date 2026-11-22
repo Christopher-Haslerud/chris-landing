@@ -1431,6 +1431,43 @@ main {
   }
 }
 
+.coming-soon-header .header-controls { display: flex; margin-left: auto; }
+.coming-soon-main {
+  display: grid;
+  min-height: 100vh;
+  place-items: center;
+  padding: calc(var(--nav-height) + 60px) 25px 60px;
+}
+.coming-soon-content {
+  width: min(720px, 100%);
+  padding: clamp(32px, 7vw, 72px);
+  border: 1px solid rgba(255, 255, 255, .1);
+  border-radius: 6px;
+  background: linear-gradient(125deg, #2b303a 0%, #222630 55%, #191b21 100%);
+  box-shadow: 0 30px 60px -28px rgba(8, 9, 12, .96);
+}
+.coming-soon-content .eyebrow {
+  margin: 0 0 22px;
+  color: var(--accent);
+  font: 10px var(--font-mono);
+  letter-spacing: .08em;
+}
+.coming-soon-content h1 {
+  margin: 0;
+  color: var(--lightest-slate);
+  font-size: clamp(48px, 8vw, 82px);
+  line-height: 1;
+  letter-spacing: -.05em;
+}
+.coming-soon-content > p:not(.eyebrow) {
+  max-width: 560px;
+  margin: 24px 0 0;
+  color: var(--light-slate);
+  font-size: 16px;
+  line-height: 1.7;
+}
+.coming-soon-content .text-link { margin-top: 32px; }
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after {
