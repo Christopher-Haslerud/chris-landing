@@ -11,4 +11,9 @@
         <priority>0.6</priority>
     </url>
 
+    <url>
+        <loc>https://christopher-haslerud.com/reading-notes.html</loc>
+        <priority>0.6</priority>
+    </url>
+
 </urlset>
